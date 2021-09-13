@@ -1,5 +1,5 @@
-from utils.model import Perceptron
-from  utils.all_units import prepare_data
+from utils.models import Perceptron
+from  utils.all_utils import prepare_data,save_model
 
 
 AND = {
