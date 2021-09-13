@@ -1,6 +1,7 @@
 from utils.models import Perceptron
-from  utils.all_utils import prepare_data,save_model
-
+from utils.all_utils import prepare_data
+from utils.all_utils import save_model
+import pandas as pd
 
 AND = {
     "x1": [0,0,1,1],
