@@ -2,10 +2,15 @@ from utils.models import Perceptron
 from utils.all_utils import prepare_data
 from utils.all_utils import save_model
 import pandas as pd
+import logging
+
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s] %(message)s"
+logging.basicConfig(level=logging.INFO, format=logging_str)
 
 def main(data,eta,epochs,filename):
 
     df = pd.DataFrame(AND)
+    logging.info(f"This is a actual dataframe{df}")
     X,y = prepare_data(df)
 
     model = Perceptron(eta, epochs)
