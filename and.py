@@ -3,9 +3,13 @@ from utils.all_utils import prepare_data
 from utils.all_utils import save_model
 import pandas as pd
 import logging
+import os
+
 
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s] %(message)s"
-logging.basicConfig(level=logging.INFO, format=logging_str)
+logs_dir = 'logs'
+os.makedirs(logs_dir, exist_ok=True)
+logging.basicConfig(filename = os.path.join(logs_dir, 'AND_Logs.log'), level=logging.INFO, format=logging_str,filemode='a')
 
 def main(data,eta,epochs,filename):
 
@@ -28,5 +32,10 @@ if __name__ == '__main__':
     ETA = 0.3 # 0 and 1
     EPOCHS = 10
     filename = "and.model"
-
-    main(data=AND,eta=ETA,epochs=EPOCHS,filename=filename)
+    try:
+        logging.info("\n <<<<<<<  Training started sucessfully >>>>>>> \n")
+        main(data=AND,eta=ETA,epochs=EPOCHS,filename=filename)
+        logging.info("\n <<<<<<<  Training ended sucessfully >>>>>>> \n")
+    except Exception as e:
+        logging.exception(e)
+        raise e
