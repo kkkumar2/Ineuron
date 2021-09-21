@@ -30,7 +30,7 @@ if __name__ == '__main__':
     }
 
     ETA = 0.3 # 0 and 1
-    EPOCHS = 10
+    EPOCHS = 100
     filename = "and.model"
     try:
         logging.info("\n <<<<<<<  Training started sucessfully >>>>>>> \n")
